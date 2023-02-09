@@ -2,12 +2,14 @@ package ru.nadobnaya.tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import ru.nadobnaya.helpers.Attach;
+
+import java.util.Map;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -15,12 +17,33 @@ public class WebinarTests {
 
     @BeforeAll
     static void beforeAll() {
-        Configuration.browserSize = "1920x1080";
+        //Configuration.browserSize = "1920x1080";
         Configuration.pageLoadStrategy = "eager";
+        Configuration.pageLoadTimeout = 100000;
+        Configuration.timeout = 10000;
+
+        baseUrl = "https://webinar.ru/";
+        Configuration.browser = System.getProperty("browser");
+        Configuration.browserVersion = System.getProperty("browserVersion");
+        Configuration.browserSize = System.getProperty("browserSize");
+        Configuration.remote = System.getProperty("remote");
+
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
+                "enableVNC", true,
+                "enableVideo", true
+        ));
+
+        Configuration.browserCapabilities = capabilities;
     }
     @AfterEach
     void afterEach() {
+        Attach.screenshotAs("Last screenshot");
+        Attach.pageSource();
+        Attach.browserConsoleLogs();
+        Attach.addVideo();
         Selenide.closeWebDriver();
+
     }
 
     @Test
@@ -33,8 +56,9 @@ public class WebinarTests {
     }
 
     @Test
+    @Tag("remote")
     void vacancyTest() {
-        open("https://webinar.ru/");
+        open(baseUrl);
         $(".header-bottom").$(".menu__dropdown").click();
         $(".sidebar__inner").$(byText("Вакансии")).click();
         //sleep(5000);
@@ -46,8 +70,9 @@ public class WebinarTests {
     }
 
     @Test
+    @Tag("remote")
     void blogTest() {
-        open("https://webinar.ru/");
+        open(baseUrl);
         $(".header-top__links-link", 0).click();
         switchTo().window(1);
         $(".header-inner").shouldHave(text("Про онлайн-технологии для бизнеса, работы и образования от компании Webinar Group"));
@@ -56,8 +81,9 @@ public class WebinarTests {
     }
 
     @Test
+    @Tag("remote")
     void productComdiTest() {
-        open("https://webinar.ru/");
+        open(baseUrl);
         $(".header-bottom").$(byText("Продукты")).hover();
         $(".header-popup.header-popup--products").$(byText("COMDI")).click();
         $("body").$(byText("Оставьте заявку")).click();
@@ -69,8 +95,9 @@ public class WebinarTests {
     }
 
     @Test
+    @Tag("remote")
     void tasksEducationTest() {
-        open("https://webinar.ru/");
+        open(baseUrl);
         $(".header-bottom").$(byText("Задачи")).hover();
         $(".header-popup.header-popup--tasks").$(byText("Обучение студентов вузов")).click();
         $("body").$(byText("Выбрать время")).click();
@@ -79,8 +106,9 @@ public class WebinarTests {
     }
 
     @Test
+    @Tag("remote")
     void priceChangingTest(){
-        open("https://webinar.ru/");
+        open(baseUrl);
         $(".menu__list").$(byText("Тарифы")).click();
         $(".block-title.tariffs__title").shouldHave(text("Тарифы"));
 //        executeJavaScript("$('#fixedban').remove()");
