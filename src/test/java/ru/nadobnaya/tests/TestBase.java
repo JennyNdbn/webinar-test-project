@@ -6,12 +6,24 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import ru.nadobnaya.helpers.Attach;
+import ru.nadobnaya.pages.*;
 
 import java.util.Map;
 
 import static com.codeborne.selenide.Configuration.baseUrl;
 
 public class TestBase {
+
+    MainPage mainPage = new MainPage();
+    VacancyPage vacancyPage = new VacancyPage();
+    CVPage cvPage = new CVPage();
+    BlogPage blogPage = new BlogPage();
+    ProductComdiPage productComdiPage = new ProductComdiPage();
+    ComdiPage comdiPage = new ComdiPage();
+    StudyTaskPage studyTaskPage = new StudyTaskPage();
+    StudentEnrollPage studentEnrollPage = new StudentEnrollPage();
+    RatesPage ratesPage = new RatesPage();
+
     @BeforeAll
     static void beforeAll() {
         //Configuration.browserSize = "1920x1080";
