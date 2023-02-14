@@ -106,31 +106,67 @@ public class WebinarTests extends TestBase {
     }
 
     @Test
+    @DisplayName("Testing of education of university students tasks page")
+    @Owner("Evgeniia Nadobnaia")
+    @Feature("Testing of webinar.ru")
+    @Story("Testing of opening education of university students page from header by using hover action. Testing of opening enroll page from education page")
+    @Severity(SeverityLevel.CRITICAL)
     @Tag("remote")
     void tasksEducationTest() {
-        mainPage.openPage();
-        mainPage.headerHover("Задачи");
-        mainPage.openStudentStudyTask();
-        studyTaskPage.openDateAndTimeChoiceWindow();
-        studentEnrollPage.verifyDateAndTimeChoiceWindowOpen();
+        step("Open main page", () -> {
+            mainPage.openPage();
+        });
+        step("Open education of university students page from tasks popup", () -> {
+            mainPage.headerHover("Задачи")
+                    .openStudentStudyTask();
+        });
+        step("Open enroll page", () -> {
+            studyTaskPage.openDateAndTimeChoiceWindow();
+        });
+        step("Verify that enroll page has opened", () -> {
+            studentEnrollPage.verifyDateAndTimeChoiceWindowOpen();
+        });
     }
 
     @Test
+    @DisplayName("Testing of rates page")
+    @Owner("Evgeniia Nadobnaia")
+    @Feature("Testing of webinar.ru")
+    @Story("Testing of rates changing for period of 1, 6, 12 months of educational subscription on rates page")
+    @Severity(SeverityLevel.CRITICAL)
     @Tag("remote")
     void priceChangingTest(){
-        mainPage.openPage()
-                .openRates();
-        ratesPage.verifyRatesOpen();
-        ratesPage.openRatesForEducation();
-        ratesPage.openRatesTooltip()
-                .selectPeriod(0)
-                .verifyRateChange("13 195");
-        ratesPage.openRatesTooltip()
-                .selectPeriod(1)
-                .verifyRateChange("11 875");
-        ratesPage.openRatesTooltip()
-                .selectPeriod(2)
-                .verifyRateChange("10 556");
+        step("Open main page", () -> {
+            mainPage.openPage();
+        });
+        step("Open rates page", () -> {
+            mainPage.openRates();
+            ratesPage.verifyRatesOpen();
+        });
+        step("Select rates for education tab", () -> {
+            ratesPage.openRatesForEducation();
+        });
+        step("Select 1 month period of subscription", () -> {
+            ratesPage.openRatesTooltip()
+                    .selectPeriod(0);
+        });
+        step("Verify the rate of 1 month period of subscription", () -> {
+            ratesPage.verifyRateChange("13 195");
+        });
+        step("Select 6 month period of subscription", () -> {
+            ratesPage.openRatesTooltip()
+                    .selectPeriod(1);
+        });
+        step("Verify the rate of 6 month period of subscription", () -> {
+            ratesPage.verifyRateChange("11 875");
+        });
+        step("Select 12 month period of subscription", () -> {
+            ratesPage.openRatesTooltip()
+                    .selectPeriod(2);
+        });
+        step("Verify the rate of 12 month period of subscription", () -> {
+            ratesPage.verifyRateChange("10 556");
+        });
     }
 
 }
