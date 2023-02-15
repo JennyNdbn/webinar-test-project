@@ -15,18 +15,20 @@
 <a id="tools"></a>
 ## Технологии и инструменты
 
-<p align="center">
-<img width="6%" title="IntelliJ IDEA" src="images/logo/IntelliJ_IDEA.png">
-<img width="6%" title="Java" src="images/logo/Java_logo.png">
-<img width="6%" title="Selenide" src="images/logo/Selenide.png">
-<img width="6%" title="Selenoid" src="images/logo/Selenoid.png">
-<img width="6%" title="Allure Report" src="images/logo/AllureReports.png">
-<img width="6%" title="Gradle" src="images/logo/Gradle.png">
-<img width="6%" title="JUnit5" src="images/logo/JUnit5.png">
-<img width="6%" title="GitHub" src="images/logo/GitHub.png">
-<img width="6%" title="Jenkins" src="images/logo/Jenkins.png">
-<img width="6%" title="Allure TestOps" src="images/logo/AllureTestOps.svg">
-</p>
+<div align="center">
+<a href="https://www.jetbrains.com/idea/"><img alt="InteliJ IDEA" height="50" src="images/logo/IntelliJ_IDEA.png" width="50"/></a>
+<a href="https://github.com/"><img alt="GitHub" height="50" src="images/logo/GitHub.png" width="50"/></a>  
+<a href="https://www.java.com/"><img alt="Java" height="50" src="images/logo/Java_logo.png" width="50"/></a>
+<a href="https://gradle.org/"><img alt="Gradle" height="50" src="images/logo/Gradle.png" width="50"/></a>  
+<a href="https://junit.org/junit5/"><img alt="JUnit 5" height="50" src="images/logo/JUnit5.png" width="50"/></a>
+<a href="https://selenide.org/"><img alt="Selenide" height="50" src="images/logo/Selenide.png" width="50"/></a>
+<a href="https://aerokube.com/selenoid/"><img alt="Selenoid" height="50" src="images/logo/Selenoid.png" width="50"/></a>
+<a href="https://www.jenkins.io/"><img alt="Jenkins" height="50" src="images/logo/Jenkins.png" width="50"/></a>
+<a href="https://github.com/allure-framework/"><img alt="Allure Report" height="50" src="images/logo/AllureReports.png" width="50"/></a>
+<a href="https://qameta.io/"><img alt="Allure TestOps" height="50" src="images/logo/AllureTestOps.svg" width="50"/></a>
+<a href="https://www.atlassian.com/software/jira"><img alt="Jira" height="50" src="images/logo/Jira.png" width="50"/></a>  
+<a href="https://telegram.org/"><img alt="Telegram" height="50" src="images/logo/Telegram.png" width="50"/></a>
+</div>
 
 Автотесты написаны на <code>Java</code> с использованием <code>JUnit 5</code> и <code>Gradle</code>.
 Для UI-тестов использован фреймворк [Selenide](https://selenide.org/).
@@ -53,6 +55,10 @@ Allure-отчет включает в себя:
 :heavy_check_mark: Проверка страницы из списка задач "Обучение студентов вузов" 
 
 :heavy_check_mark: Проверка страницы "Тарифы" 
+
+### Ручные проверки
+- [ ] Проверка страницы логина
+- [ ] Проверка email, указанного на странице "Поддержка"
 
 
 <a id="console"></a>
@@ -90,7 +96,7 @@ clean run_tests \
 > Сборка с параметрами позволяет перед запуском изменить параметры для сборки (путем выбора из списка или прямым указанием значения).
 
 <p align="center">
-<img src="images/screenshots/JenkinsJob.png"/></a>
+<img src="images/screenshots/JenkinsJob.PNG"/></a>
 </p>
 
 <a id="allure"></a>
@@ -115,34 +121,35 @@ clean run_tests \
 </p>
 
 <a id="testops"></a>
-## Интеграция с Allure TestOps 
+## Интеграция с <a target="_blank" href="https://allure.autotests.cloud/project/1873/test-cases?treeId=3601"> Allure TestOps </a>   
+
+### Доска
+<p align="center">
+<img src="images/screenshots/AllureTestOpsDashboard.PNG">
+</p>
 
 ### Тест-кейсы
 <p align="center">
-<img src="images/screenshots/AllureTestCases.png">
+<img src="images/screenshots/AllureTestCases.PNG">
 </p>
 
 ### Пример мануального тест-кейса
 <p align="center">
-<img src="images/screenshots/AllureTestOpsManualTest.png">
+<img src="images/screenshots/AllureTestOpsManualTest.PNG">
 </p>
 
-### Пример запуска тест-кейсов
-<p align="center">
-<img src="images/screenshots/AllureTestOpsLaunches.png">
-</p>
 
 <a id="jira"></a>
-## Интеграция с Jira 
+## Интеграция с <a target="_blank" href="https://jira.autotests.cloud/browse/HOMEWORK-533"> Jira </a> 
 <p align="center">
-<img src="images/screenshots/Jira.png">
+<img src="images/screenshots/Jira.PNG">
 </p>
 
 <a id="telegram"></a>
 ## Уведомления в Telegram с использованием бота
 
 <p>
-<img src="images/screenshots/TelegramBot.png">
+<img src="images/screenshots/TelegramBot.PNG">
 </p>
 
 <a id="video"></a>
