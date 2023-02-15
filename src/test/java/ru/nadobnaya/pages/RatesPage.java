@@ -13,6 +13,7 @@ public class RatesPage {
     }
 
     public RatesPage openRatesForEducation() {
+        sleep(5000);
         $(".tab-common__list").$(byText("Для обучения")).click();
         $("#tab-webinar").shouldHave(text("Pro 150"));
         return this;

@@ -1,10 +1,21 @@
 package ru.nadobnaya.pages;
 
+import com.codeborne.selenide.SelenideElement;
+
 import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class MainPage {
+
+    private final SelenideElement
+            headerBottom = $(".header-bottom"),
+            sidebar = $(".sidebar__inner"),
+            headerTopLinkBlog = $(".header-top__links-link", 0),
+            headerPopupProducts = $(".header-popup.header-popup--products"),
+            headerPopupTasks = $(".header-popup.header-popup--tasks"),
+            menuList = $(".menu__list");
+
 
     public MainPage openPage() {
         open(baseUrl);
@@ -12,40 +23,39 @@ public class MainPage {
     }
 
     public MainPage openSideMenu() {
-         $(".header-bottom").$(".menu__dropdown").click();
-         return this;
+        headerBottom.$(".menu__dropdown").click();
+        return this;
     }
 
     public MainPage openWindowFromSidebar(String value) {
-        $(".sidebar__inner").$(byText(value)).click();
+        sidebar.$(byText(value)).click();
         switchTo().window(1);
         return this;
     }
 
     public MainPage openBlog() {
-        $(".header-top__links-link", 0).click();
+        headerTopLinkBlog.click();
         switchTo().window(1);
         return this;
     }
 
     public MainPage headerHover(String value) {
-        $(".header-bottom").$(byText(value)).hover();
+        headerBottom.$(byText(value)).hover();
         return this;
     }
 
     public MainPage openCOMDIProduct() {
-        //$(".header-bottom").$(byText("Продукты")).hover();
-        $(".header-popup.header-popup--products").$(byText("COMDI")).click();
+        headerPopupProducts.$(byText("COMDI")).click();
         return this;
     }
 
     public MainPage openStudentStudyTask() {
-        $(".header-popup.header-popup--tasks").$(byText("Обучение студентов вузов")).click();
+        headerPopupTasks.$(byText("Обучение студентов вузов")).click();
         return this;
     }
 
     public MainPage openRates() {
-        $(".menu__list").$(byText("Тарифы")).click();
+        menuList.$(byText("Тарифы")).click();
         return this;
     }
 

@@ -12,7 +12,13 @@ public class WebinarTests extends TestBase {
 
 
     @Test
-    @Disabled
+    @DisplayName("Testing of google search")
+    @Owner("Evgeniia Nadobnaia")
+    @Feature("Testing of webinar.ru")
+    @Story("Testing of showing webinar.ru site in query of Google")
+    @Severity(SeverityLevel.NORMAL)
+    @Tag("remote")
+    @Disabled("Google is protected by Capcha")
     void googleSearchTest() {
         open("https://www.google.com/");
         $("[name=q]").setValue("вебинар").pressEnter();
@@ -35,7 +41,7 @@ public class WebinarTests extends TestBase {
             mainPage.openSideMenu();
         });
         step("Open vacancy window", () -> {
-            mainPage.openWindowFromSidebar("Вакансии");
+            mainPage.openWindowFromSidebar(testData.vanancy);
         });
         step("Verify that vacancy window has opened", () -> {
             vacancyPage.verifyVacancyWindowOpened();
@@ -85,7 +91,7 @@ public class WebinarTests extends TestBase {
             mainPage.openPage();
         });
         step("Open COMDI page from products popup", () -> {
-            mainPage.headerHover("Продукты")
+            mainPage.headerHover(testData.products)
                 .openCOMDIProduct();
         });
         step("Open request popup on COMDI page", () -> {
@@ -117,7 +123,7 @@ public class WebinarTests extends TestBase {
             mainPage.openPage();
         });
         step("Open education of university students page from tasks popup", () -> {
-            mainPage.headerHover("Задачи")
+            mainPage.headerHover(testData.tasks)
                     .openStudentStudyTask();
         });
         step("Open enroll page", () -> {
@@ -133,7 +139,7 @@ public class WebinarTests extends TestBase {
     @Owner("Evgeniia Nadobnaia")
     @Feature("Testing of webinar.ru")
     @Story("Testing of rates changing for period of 1, 6, 12 months of educational subscription on rates page")
-    @Severity(SeverityLevel.CRITICAL)
+    @Severity(SeverityLevel.BLOCKER)
     @Tag("remote")
     void priceChangingTest(){
         step("Open main page", () -> {
@@ -148,24 +154,24 @@ public class WebinarTests extends TestBase {
         });
         step("Select 1 month period of subscription", () -> {
             ratesPage.openRatesTooltip()
-                    .selectPeriod(0);
+                    .selectPeriod(testData.oneMonthPeriod);
         });
         step("Verify the rate of 1 month period of subscription", () -> {
-            ratesPage.verifyRateChange("13 195");
+            ratesPage.verifyRateChange(testData.oneMonthRate);
         });
         step("Select 6 month period of subscription", () -> {
             ratesPage.openRatesTooltip()
-                    .selectPeriod(1);
+                    .selectPeriod(testData.sixMonthsPeriod);
         });
         step("Verify the rate of 6 month period of subscription", () -> {
-            ratesPage.verifyRateChange("11 875");
+            ratesPage.verifyRateChange(testData.sixMonthRate);
         });
         step("Select 12 month period of subscription", () -> {
             ratesPage.openRatesTooltip()
-                    .selectPeriod(2);
+                    .selectPeriod(testData.twelveMonthsPeriod);
         });
         step("Verify the rate of 12 month period of subscription", () -> {
-            ratesPage.verifyRateChange("10 556");
+            ratesPage.verifyRateChange(testData.twelveMonthRate);
         });
     }
 

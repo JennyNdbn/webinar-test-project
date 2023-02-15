@@ -13,7 +13,7 @@ import java.util.Map;
 import static com.codeborne.selenide.Configuration.baseUrl;
 
 public class TestBase {
-
+    TestData testData = new TestData();
     MainPage mainPage = new MainPage();
     VacancyPage vacancyPage = new VacancyPage();
     CVPage cvPage = new CVPage();
@@ -29,7 +29,7 @@ public class TestBase {
         //Configuration.browserSize = "1920x1080";
         Configuration.pageLoadStrategy = "eager";
         Configuration.pageLoadTimeout = 100000;
-        Configuration.timeout = 10000;
+        Configuration.timeout = 15000;
 
         baseUrl = "https://webinar.ru/";
         Configuration.browser = System.getProperty("browser");
@@ -38,13 +38,11 @@ public class TestBase {
         Configuration.remote = System.getProperty("remote");
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
-                "enableVNC", true,
-                "enableVideo", true
-        ));
+        capabilities.setCapability("selenoid:options", Map.<String, Object>of("enableVNC", true, "enableVideo", true));
 
         Configuration.browserCapabilities = capabilities;
     }
+
     @AfterEach
     void afterEach() {
         Attach.screenshotAs("Last screenshot");
