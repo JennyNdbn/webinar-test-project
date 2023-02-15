@@ -72,7 +72,7 @@ gradle clean remote_test
 ### Удаленный запуск тестов
 
 ```
-clean run_tests \
+clean remote_test \
   -Dbrowser=${BROWSER} \
   -DbrowserVersion=${BROWSER_VERSION} \
   -DbrowserSize=${BROWSER_SIZE} \
