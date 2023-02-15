@@ -94,7 +94,7 @@ clean run_tests \
 </p>
 
 <a id="allure"></a>
-## Отчеты в <a target="_blank" href="https://jenkins.autotests.cloud/job/017-Jenny_Ndbn-java-14-webinar-project/allure/"> Allure </a> 
+## Отчеты в <a target="_blank" href="https://jenkins.autotests.cloud/job/017-Jenny_Ndbn-java-14-webinar-project/allure/"> Allure report </a> 
 
 ### Основное окно
 
@@ -106,6 +106,12 @@ clean run_tests \
 
 <p align="center">
 <img src="images/screenshots/AllureBehaviors.png">
+</p>
+
+### Графики
+
+<p align="center">
+<img src="images/screenshots/AllureGraphs.png">
 </p>
 
 <a id="testops"></a>
