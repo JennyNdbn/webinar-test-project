@@ -72,9 +72,6 @@ gradle clean remote_test
 ### Удаленный запуск тестов
 
 ```
-export BROWSER_PLATFORM=$(echo "${BROWSER}" | awk '{print $1}')
-export BROWSER_VERSION=$(echo "${BROWSER}" | awk '{print $2}')
-
 clean run_tests \
   -Dbrowser=${BROWSER} \
   -DbrowserVersion=${BROWSER_VERSION} \
