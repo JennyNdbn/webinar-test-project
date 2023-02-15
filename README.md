@@ -1,6 +1,4 @@
-# webinar-test-project
-QA GURU 17 Homework
-<h1 >Проект автоматизации UI для сайта <a href="https://webinar.ru/ ">webinar.ru/</a></h1>
+<h1 >Проект автоматизации UI для сайта <a href="https://webinar.ru/ ">webinar.ru</a></h1>
 
 ## Содержание
 
@@ -46,11 +44,15 @@ Allure-отчет включает в себя:
 ## Реализованные проверки
 
 ### Автоматизированные проверки
-- [ ] При открытии страницы "Вакансии" через боковое меню открывается страница вакансий, в которой можно осуществить переход к странице отправки резюме
-- [ ] При открытии страницы блога на ней содержится заголовок "Про онлайн-технологии для бизнеса, работы и образования от компании Webinar Group", на странице отображается "Популярное", а в футере отображается email "pr@webinar.ru"
-- [ ] При переходе на страницу продукта COMDI на ней можно по клику на кнопку "Оставить заявку" вызвать всплывающее окно, содержащее текст "Я хочу провести онлайн-мероприятие" и закрыть его. По клику на кнопку "Подробнее" откроется сайт comdi.ru, содержащий текст "Оставайтесь на связи с сотрудниками и клиентами"
-- [ ] При переходе на страницу "Обучение студентов вузов" и нажатии на кнопку "Выбрать время" открывается окно с виджетом и текстом "Выберите дату и время"
-- [ ] При переходе на страницу тарифов и выборе вкладки "Для обучения" при смене количества месяцев подписки меняется тариф
+:heavy_check_mark: Проверка страницы "Вакансии" 
+
+:heavy_check_mark: Проверка страницы "Блог"
+
+:heavy_check_mark: Проверка страницы из списка продуктов "COMDI"
+
+:heavy_check_mark: Проверка страницы из списка задач "Обучение студентов вузов" 
+
+:heavy_check_mark: Проверка страницы "Тарифы" 
 
 
 <a id="console"></a>
@@ -67,11 +69,11 @@ gradle clean remote_test
 export BROWSER_PLATFORM=$(echo "${BROWSER}" | awk '{print $1}')
 export BROWSER_VERSION=$(echo "${BROWSER}" | awk '{print $2}')
 
-./gradlew clean run_tests \
+clean run_tests \
   -Dbrowser=${BROWSER} \
-  -Dversion=${BROWSER_VERSION} \
-  -DwindowSize=${BROWSER_SIZE} \
-  -DremoteUrl=${REMOTE}
+  -DbrowserVersion=${BROWSER_VERSION} \
+  -DbrowserSize=${BROWSER_SIZE} \
+  -Dremote=${REMOTE}
 ```
 
 > `${BROWSER}` - наименование браузера (_по умолчанию - <code>chrome</code>_).
@@ -83,7 +85,7 @@ export BROWSER_VERSION=$(echo "${BROWSER}" | awk '{print $2}')
 > `${REMOTE}` - адрес удаленного сервера, на котором будут запускаться тесты.
 
 <a id="jenkins"></a>
-## Запуск тестов в Jenkins
+## Запуск тестов в <a target="_blank" href="https://jenkins.autotests.cloud/job/017-Jenny_Ndbn-java-14-webinar-project/"> Jenkins </a>
 
 > Сборка с параметрами позволяет перед запуском изменить параметры для сборки (путем выбора из списка или прямым указанием значения).
 
@@ -92,7 +94,7 @@ export BROWSER_VERSION=$(echo "${BROWSER}" | awk '{print $2}')
 </p>
 
 <a id="allure"></a>
-## Отчеты в Allure
+## Отчеты в <a target="_blank" href="https://jenkins.autotests.cloud/job/017-Jenny_Ndbn-java-14-webinar-project/allure/"> Allure </a> 
 
 ### Основное окно
 
