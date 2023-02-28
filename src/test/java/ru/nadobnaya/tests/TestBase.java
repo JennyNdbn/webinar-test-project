@@ -13,8 +13,6 @@ import ru.nadobnaya.pages.*;
 
 import java.util.Map;
 
-import static com.codeborne.selenide.Configuration.baseUrl;
-
 public class TestBase {
     TestData testData = new TestData();
     MainPage mainPage = new MainPage();
@@ -29,16 +27,19 @@ public class TestBase {
 
     @BeforeAll
     static void beforeAll() {
-        //Configuration.browserSize = "1920x1080";
         Configuration.pageLoadStrategy = "eager";
         Configuration.pageLoadTimeout = 100000;
         Configuration.timeout = 15000;
 
-        baseUrl = "https://webinar.ru/";
-        Configuration.browser = System.getProperty("browser");
-        Configuration.browserVersion = System.getProperty("browserVersion");
-        Configuration.browserSize = System.getProperty("browserSize");
-        Configuration.remote = System.getProperty("remote");
+//            String remote = System.getProperty("remote", "");
+//            Configuration.baseUrl = System.getProperty("baseUrl", "https://webinar.ru/");
+//            Configuration.browser = System.getProperty("browser", "chrome");
+//            Configuration.browserVersion = System.getProperty("browserVersion", "100.0");
+//            Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
+//
+//            Configuration.remote = System.getProperty("remote", "");
+        WebDriverProvider provider = new WebDriverProvider() {
+        };
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(

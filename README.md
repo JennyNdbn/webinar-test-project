@@ -76,7 +76,7 @@ clean remote_test \
   -Dbrowser=${BROWSER} \
   -DbrowserVersion=${BROWSER_VERSION} \
   -DbrowserSize=${BROWSER_SIZE} \
-  -Dremote=${REMOTE}
+  -DremoteUrl=${REMOTE_URL}
 ```
 
 > `${BROWSER}` - наименование браузера (_по умолчанию - <code>chrome</code>_).
@@ -85,7 +85,7 @@ clean remote_test \
 > 
 > `${BROWSER_SIZE}` - размер окна браузера (_по умолчанию - <code>1980x1080</code>_).
 >
-> `${REMOTE}` - адрес удаленного сервера, на котором будут запускаться тесты.
+> `${REMOTE_URL}` - адрес удаленного сервера, на котором будут запускаться тесты.
 
 <a id="jenkins"></a>
 ## Запуск тестов в <a target="_blank" href="https://jenkins.autotests.cloud/job/017-Jenny_Ndbn-java-14-webinar-project/"> Jenkins </a>
@@ -93,7 +93,7 @@ clean remote_test \
 > Сборка с параметрами позволяет перед запуском изменить параметры для сборки (путем выбора из списка или прямым указанием значения).
 
 <p align="center">
-<img src="images/screenshots/JenkinsJob.PNG"/></a>
+<img src="images/screenshots/JenkinsJob.PNG"/>
 </p>
 
 <a id="allure"></a>
