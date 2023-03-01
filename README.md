@@ -66,16 +66,17 @@ Allure-отчет включает в себя:
 ### Локальный запуск тестов
 
 ```
-gradle clean remote_test 
+gradle clean remote_test -Denv=locale
 ```
 
 ### Удаленный запуск тестов
 
 ```
-clean remote_test \
-  -Dbrowser=${BROWSER} \
-  -DbrowserVersion=${BROWSER_VERSION} \
-  -DbrowserSize=${BROWSER_SIZE} \
+clean remote_test 
+  -Denv=remote 
+  -Dbrowser=${BROWSER} 
+  -DbrowserVersion=${BROWSER_VERSION} 
+  -DbrowserSize=${BROWSER_SIZE} 
   -DremoteUrl=${REMOTE_URL}
 ```
 
