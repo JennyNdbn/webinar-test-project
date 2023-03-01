@@ -66,14 +66,16 @@ Allure-отчет включает в себя:
 ### Локальный запуск тестов
 
 ```
-gradle clean remote_test -Denv=locale
+gradle clean remote_test 
 ```
+
+С помощью переменной `env` можно переключаться между локальным и удалённым запуском тестов с параметрами по умолчанию. (_`-Denv=remote` для удалённого запуска тестов, `-Denv=locale` - для локального_).
+
 
 ### Удаленный запуск тестов
 
 ```
 clean remote_test 
-  -Denv=remote 
   -Dbrowser=${BROWSER} 
   -DbrowserVersion=${BROWSER_VERSION} 
   -DbrowserSize=${BROWSER_SIZE} 
