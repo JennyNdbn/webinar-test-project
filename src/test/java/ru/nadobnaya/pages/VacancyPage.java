@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class VacancyPage {
 
     private final SelenideElement
-            coverContent =  $("[data-hook-content=covercontent]");
+            coverContent = $("[data-hook-content=covercontent]");
 
     public VacancyPage verifyVacancyWindowOpened() {
         coverContent.shouldHave(text("Webinar Group - не просто успешная IT-компания."));
@@ -21,7 +21,6 @@ public class VacancyPage {
         switchTo().window(2);
         return this;
     }
-
 
 
 }
